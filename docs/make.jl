@@ -8,5 +8,8 @@ makedocs(format= :html, sitename = "testdocs")
 deploydocs(
     repo = "github.com/pb866/testdocs.jl.git",
     julia = "1.0.1",
-    osname = "osx"
+    osname = "osx",
+    target = "build",
+    deps = nothing,
+    make = nothing
 )

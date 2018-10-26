@@ -13,8 +13,6 @@ notifications:
   email: false
 
 after_success:
-  - julia -e 'Pkg.add("Documenter")'
-  - julia -e 'cd(Pkg.dir("testdocs")); include(joinpath("docs", "make.jl"))'
   - julia --project=coverage/ -e 'using Pkg; Pkg.instantiate()'
   - julia --project=coverage/ coverage/coverage.jl
 
