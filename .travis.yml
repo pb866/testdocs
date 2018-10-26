@@ -1,0 +1,37 @@
+
+language: julia
+
+os:
+  - linux
+  - osx
+
+julia:
+  - 0.7
+  - 1.0
+
+notifications:
+  email: false
+
+after_success:
+  - julia -e 'Pkg.add("Documenter")'
+  - julia -e 'cd(Pkg.dir("testdocs")); include(joinpath("docs", "make.jl"))'
+  - julia --project=coverage/ -e 'using Pkg; Pkg.instantiate()'
+  - julia --project=coverage/ coverage/coverage.jl
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  on:
+    branch: master
+
+jobs:
+  include:
+    - stage: "Documentation"
+      julia: 1.0.1
+      os: osx
+      script:
+        - julia --project=docs/ -e 'using Pkg; Pkg.instantiate(); Pkg.develop(PackageSpec(path=pwd()))'
+        - julia --project=docs/ docs/make.jl
+      after_success: skip
