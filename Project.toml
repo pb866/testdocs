@@ -1,7 +1,7 @@
 name = "testdocs"
 uuid = "9195ccf0-d93e-11e8-117a-71970db5988f"
 authors = ["Peter Bräuer <pb866@york.ac.uk>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"

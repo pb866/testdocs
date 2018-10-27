@@ -1,0 +1,27 @@
+site_name:           testdocs
+repo_url:            https://github.com/pb866/testdocs
+site_description:    Julia nonsense to test automated documentation.
+site_author:         Peter Bräuer
+theme:               readthedocs
+
+markdown_extensions:
+  - codehilite
+  - extra
+  - tables
+  - fenced_code
+
+extra_css:
+  - assets/documenter.css
+
+docs_dir: 'build'
+
+# pages:
+# - Introduction: index.md
+# - Tutorial:
+#   - Title 1: tutorials/page1.md
+#   - Title 2: tutorials/page2.md
+#   - Title 3: tutorials/page3.md
+# - Another Section:
+#   - Title 1: sec2/page1.md
+#   - Title 2: sec2/page2.md
+#   - Title 3: sec2/page3.md

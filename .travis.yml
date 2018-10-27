@@ -12,14 +12,10 @@ julia:
 notifications:
   email: false
 
-after_success:
-  - julia --project=coverage/ -e 'using Pkg; Pkg.instantiate()'
-  - julia --project=coverage/ coverage/coverage.jl
-
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github-token: $docs  # Set in the settings page of your repository, as a secure variable
   keep-history: true
   on:
     branch: master
@@ -27,7 +23,7 @@ deploy:
 jobs:
   include:
     - stage: "Documentation"
-      julia: 1.0.1
+      julia: 1.0
       os: osx
       script:
         - julia --project=docs/ -e 'using Pkg; Pkg.instantiate(); Pkg.develop(PackageSpec(path=pwd()))'
