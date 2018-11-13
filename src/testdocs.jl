@@ -22,4 +22,12 @@ Add two numbers `a` and `b`.
 """
 add_numbers(a::Number, b::Number) = a + b
 
+
+"""
+    version2func(version::VersionNumber)
+
+Prints the version number.
+"""
+version2func(version::VersionNumber) = println("Your on version $a.")
+
 end # module
