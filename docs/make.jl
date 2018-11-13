@@ -3,7 +3,12 @@ Pkg.activate(joinpath(Base.source_dir(), ".."))
 using Documenter
 using testdocs
 
-makedocs(format= :html, sitename = "testdocs")
+makedocs(format= :html, sitename = "testdocs",
+pages = [
+    "index.md",
+    "Original Functions" => "page1.md",
+    "Added Function" => "page2.md"
+])
 
 deploydocs(deps   = Deps.pip("mkdocs", "python-markdown-math"),
     repo = "github.com/pb866/testdocs.jl.git",
@@ -11,4 +16,14 @@ deploydocs(deps   = Deps.pip("mkdocs", "python-markdown-math"),
     osname = "osx",
     target = "build",
     make = nothing
+)
+makedocs(
+    ...,
+    pages = [
+        "page.md",
+        "Page title" => "page2.md",
+        "Subsection" => [
+            ...
+        ]
+    ]
 )
